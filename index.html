@@ -166,25 +166,24 @@
         }
 
         /* --- Navigation & Sidebar --- */
-        /* --- Navigation & Sidebar --- */
         .nav-header {
             width: 100%;
             padding: 20px 5%;
             display: flex;
-            justify-content: flex-end;
-            position: fixed; /* This is the magic word that keeps it on screen */
+            justify-content: flex-end; /* Puts the icon on the right */
+            position: absolute;
             top: 0;
-            left: 0;
-            z-index: 100; /* Keeps it floating above your service cards */
-            box-sizing: border-box; /* Prevents the 100% width from causing a side-scroll */
-            pointer-events: none; /* Lets you click through the invisible part of the header */
+            z-index: 50;
         }
 
-        /* Re-enables clicking on just the button itself */
         .hamburger {
-            pointer-events: auto;
             font-size: 2rem;
-            /* ... keep the rest of your .hamburger styling exactly the same ... */
+            color: #ffffff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
 
             .hamburger:hover {
                 transform: scale(1.1);
