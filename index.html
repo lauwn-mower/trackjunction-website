@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrackJunction | Track Bikes Specialist</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
     <style>
         /* --- Base & Reset --- */
         * {
@@ -15,8 +18,7 @@
         body, html {
             height: 100%;
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            /* Recreating the dark, slightly radial background from your photo */
-            background: radial-gradient(circle at center, #2B4550 0%, #0F1A20 100%);
+            background-color: #000000; /* Pure black base */
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -28,6 +30,13 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, .btn, .nav-links a, .service-card .price {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1.5px; /* Gives the tall letters a little breathing room */
+            font-weight: normal; /* Bebas is already bold by default */
         }
 
         /* --- Header / Main Logo --- */
@@ -50,19 +59,19 @@
             text-align: center; /* Ensures everything is centered like your photo */
         }
 
-        .content-area h1 {
-            font-size: 3.2rem;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            margin-bottom: 15px;
-        }
+            .content-area h1 {
+                font-size: 3.2rem;
+                font-weight: bold;
+                letter-spacing: 0.5px;
+                margin-bottom: 15px;
+            }
 
-        .content-area p {
-            font-size: 1.1rem;
-            color: #e0e0e0;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
+            .content-area p {
+                font-size: 1.1rem;
+                color: #e0e0e0;
+                margin-bottom: 40px;
+                font-weight: 300;
+            }
 
         /* --- Button --- */
         .btn {
@@ -77,10 +86,10 @@
             transition: all 0.3s ease;
         }
 
-        .btn:hover {
-            background: #ffffff;
-            color: #0F1A20; /* Dark text on hover */
-        }
+            .btn:hover {
+                background: #ffffff;
+                color: #0F1A20; /* Dark text on hover */
+            }
 
         /* --- Footer Icons --- */
         .footer {
@@ -91,23 +100,23 @@
             gap: 25px; /* Space between icons */
         }
 
-        .footer a {
-            display: inline-block;
-            width: 28px;
-            height: 28px;
-            transition: transform 0.2s ease;
-        }
+            .footer a {
+                display: inline-block;
+                width: 28px;
+                height: 28px;
+                transition: transform 0.2s ease;
+            }
 
-        .footer a:hover {
-            transform: translateY(-3px); /* Slight jump effect on hover */
-        }
+                .footer a:hover {
+                    transform: translateY(-3px); /* Slight jump effect on hover */
+                }
 
-        .footer img {
-            width: 100%;
-            height: auto;
-            /* Converts the black PNG icons to white */
-            filter: invert(1); 
-        }
+            .footer img {
+                width: 100%;
+                height: auto;
+                /* Converts the black PNG icons to white */
+                filter: invert(1);
+            }
 
         /* --- Mobile Responsiveness --- */
         @media (max-width: 768px) {
@@ -115,12 +124,14 @@
                 padding: 0 5%;
                 text-align: center;
             }
-            .content-area h1 {
-                font-size: 2.2rem;
-            }
-            .content-area p {
-                font-size: 1rem;
-            }
+
+                .content-area h1 {
+                    font-size: 2.2rem;
+                }
+
+                .content-area p {
+                    font-size: 1rem;
+                }
         }
 
         /* --- Navigation & Sidebar --- */
@@ -152,16 +163,17 @@
         .sidebar {
             position: fixed;
             top: 0;
-            right: -300px; /* Hidden off-screen by default */
+            right: -300px;
             width: 300px;
             height: 100vh;
-            background: #0F1A20; /* Matches your dark theme */
-            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+            background: #050505; /* Just slightly off-black so it doesn't get lost on the main page */
+            box-shadow: -5px 0 15px rgba(0,0,0,0.8);
             z-index: 200;
-            transition: right 0.4s ease; /* The slide animation */
+            transition: right 0.4s ease;
             padding: 60px 30px;
             display: flex;
             flex-direction: column;
+            border-left: 1px solid rgba(255, 255, 255, 0.05); /* Adds a crisp edge */
         }
 
             /* When the 'active' class is added via JavaScript, it slides in */
@@ -300,15 +312,15 @@
             }
         /* --- Hero Layout & Panning Background --- */
         .hero-section {
-            position: relative; /* Crucial to keep the background contained */
+            position: relative;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding-top: 60px;
-            overflow: hidden; /* Hides the oversized parts of the image */
-            background: radial-gradient(circle at center, #2B4550 0%, #0F1A20 80%);
+            overflow: hidden;
+            background-color: #000000; /* Matches the body perfectly */
         }
 
         .bike-background {
