@@ -382,5 +382,32 @@
 
     </div>
 
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        // Function to open/close the menu
+        function toggleMenu() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // Event Listeners
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu); // Closes menu if user clicks outside of it
+
+        // Automatically close the menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+    </script>
+
 </body>
 </html>
