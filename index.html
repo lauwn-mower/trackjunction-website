@@ -184,8 +184,8 @@
             width: 100%;
             padding: 20px 5%;
             display: flex;
-            justify-content: flex-end; /* Puts the icon on the right */
-            position: absolute;
+            justify-content: flex-end;
+            position: absolute; /* Safely anchored at the top */
             top: 0;
             z-index: 50;
         }
@@ -201,29 +201,28 @@
 
             .hamburger:hover {
                 transform: scale(1.1);
-                color: #d90429; /* Sporty red accent */
+                color: #FCAE16; /* New custom yellow-orange accent */
             }
 
         /* The Sidebar Panel */
         .sidebar {
             position: fixed;
             top: 0;
-            right: -300px;
+            right: -300px; /* Hidden perfectly off-screen */
             width: 300px;
             height: 100vh;
-            background: #050505; /* Just slightly off-black so it doesn't get lost on the main page */
+            background: #050505;
             box-shadow: -5px 0 15px rgba(0,0,0,0.8);
             z-index: 200;
             transition: right 0.4s ease;
             padding: 60px 30px;
             display: flex;
             flex-direction: column;
-            border-left: 1px solid rgba(255, 255, 255, 0.05); /* Adds a crisp edge */
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-            /* When the 'active' class is added via JavaScript, it slides in */
             .sidebar.active {
-                right: 0;
+                right: 0; /* Slides in when active */
             }
 
         .close-btn {
@@ -238,12 +237,13 @@
         }
 
             .close-btn:hover {
-                color: #d90429;
+                color: #FCAE16;
             }
 
         .nav-links {
             list-style: none;
             margin-top: 20px;
+            padding-left: 0;
         }
 
             .nav-links li {
@@ -254,13 +254,12 @@
                 color: #e0e0e0;
                 text-decoration: none;
                 font-size: 1.2rem;
-                font-weight: 500;
-                transition: color 0.3s ease;
+                transition: all 0.3s ease;
             }
 
                 .nav-links a:hover {
                     color: #ffffff;
-                    padding-left: 10px; /* Slight indent on hover for a premium feel */
+                    padding-left: 10px; /* Slick indent effect */
                 }
 
         /* The dark fading overlay */
@@ -273,13 +272,13 @@
             background: rgba(0, 0, 0, 0.7);
             z-index: 150;
             opacity: 0;
-            pointer-events: none; /* Can't click it when hidden */
+            pointer-events: none;
             transition: opacity 0.4s ease;
         }
 
             .overlay.active {
                 opacity: 1;
-                pointer-events: auto; /* Clickable when active */
+                pointer-events: auto;
             }
         /* --- Services Section --- */
         .services-section {
