@@ -39,6 +39,37 @@
             font-weight: normal; /* Bebas is already bold by default */
         }
 
+        /* --- Header & Logo Subtitle --- */
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-subtitle {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-top: 10px;
+            letter-spacing: 2px;
+            font-weight: normal;
+        }
+
+        /* --- Hero Text Styling Updates --- */
+        .content-area .slogan {
+            font-size: 3.5rem; /* Bumped up the size since it's the main hook now! */
+            color: #FCAE16; /* Your custom yellow-orange */
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .content-area .subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 35px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            letter-spacing: 0.5px;
+        }
+
         /* --- Header / Main Logo --- */
         .header {
             text-align: center;
@@ -418,11 +449,12 @@
 
             <div class="header z-front">
                 <img src="b8d0e77d-e569-40f4-a567-3d2dec939351.jfif" alt="TrackJunction Logo" class="main-logo reveal-up">
+                <h1 class="logo-subtitle reveal-up">Track Bikes Specialist</h1>
             </div>
 
             <div class="content-area z-front">
-                <h1 class="reveal-up">Track Bikes Specialist</h1>
-                <p class="reveal-up">Home Based. Affordable and Professional. For Cyclists by a cyclist.</p>
+                <h2 class="reveal-up slogan">For Cyclists,<br>From a Cyclist.</h2>
+                <p class="reveal-up subtitle">Home-based. Affordable. Professional.</p>
                 <a href="https://carousell.com/trackjunction.co" target="_blank" class="btn reveal-up">Catalogue</a>
             </div>
 
