@@ -298,7 +298,82 @@
                 background: rgba(217, 4, 41, 0.1); /* Faint red tint */
                 border-color: #d90429;
             }
+        /* --- Hero Layout & Panning Background --- */
+        .hero-section {
+            position: relative; /* Crucial to keep the background contained */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 60px;
+            overflow: hidden; /* Hides the oversized parts of the image */
+            background: radial-gradient(circle at center, #2B4550 0%, #0F1A20 80%);
+        }
 
+        .bike-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Pushes it to the very back */
+            pointer-events: none; /* Ensures you can still click the buttons on top */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bike {
+            min-width: 150vw; /* Forces the image to be 50% wider than the screen */
+            min-height: 120vh;
+            object-fit: cover;
+            mix-blend-mode: screen; /* Keeps hiding the black background */
+            opacity: 0.4; /* Dims the frame slightly so your white text stays readable! */
+            animation: slowPan 30s ease-in-out infinite alternate; /* 30 seconds back and forth */
+        }
+
+        /* The Zoom and Pan Animation */
+        @keyframes slowPan {
+            0% {
+                transform: scale(1.5) translateX(-8%);
+            }
+
+            100% {
+                transform: scale(1.5) translateX(8%);
+            }
+        }
+
+        /* Forces the Logo and Text to sit above the background */
+        .z-front {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- Motion Design & Scroll Reveals --- */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+            .reveal-up.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        /* Cascading delays for the service cards */
+        .services-grid .service-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .services-grid .service-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .services-grid .service-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
     </style>
 </head>
 <body>
@@ -323,21 +398,29 @@
 
         <div class="overlay" id="overlay"></div>
 
-        <div class="header">
-            <img src="b8d0e77d-e569-40f4-a567-3d2dec939351.jfif" alt="TrackJunction Logo" class="main-logo">
-        </div>
+        <div class="hero-section">
 
-        <div class="content-area">
-            <h1>Track Bikes Specialist</h1>
-            <p>Home Based. Affordable and Professional. For Cyclists by a cyclist</p>
-            <a href="https://carousell.com/trackjunction.co" target="_blank" class="btn">Catalogue</a>
+            <div class="bike-background">
+                <img src="startrack-colossi.png" alt="Star Track Colossi Frame Background" class="hero-bike">
+            </div>
+
+            <div class="header z-front">
+                <img src="b8d0e77d-e569-40f4-a567-3d2dec939351.jfif" alt="TrackJunction Logo" class="main-logo reveal-up">
+            </div>
+
+            <div class="content-area z-front">
+                <h1 class="reveal-up">Track Bikes Specialist</h1>
+                <p class="reveal-up">Home Based. Affordable and Professional. For Cyclists by a cyclist.</p>
+                <a href="https://carousell.com/trackjunction.co" target="_blank" class="btn reveal-up">Catalogue</a>
+            </div>
+
         </div>
 
         <section id="services" class="services-section">
-            <h2>Services & Rates</h2>
+            <h2 class="reveal-up">Services & Rates</h2>
             <div class="services-grid">
 
-                <div class="service-card">
+                <div class="service-card reveal-up">
                     <h3>Basic Tune-Up</h3>
                     <p class="price">From $40</p>
                     <ul>
@@ -348,7 +431,7 @@
                     </ul>
                 </div>
 
-                <div class="service-card highlight">
+                <div class="service-card highlight reveal-up">
                     <h3>Full Overhaul</h3>
                     <p class="price">From $120</p>
                     <ul>
@@ -359,7 +442,7 @@
                     </ul>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card reveal-up">
                     <h3>Custom Builds</h3>
                     <p class="price">Ask for Quote</p>
                     <ul>
@@ -407,6 +490,26 @@
                 overlay.classList.remove('active');
             });
         });
+
+        // --- Scroll Reveal Animation ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const revealElements = document.querySelectorAll('.reveal-up');
+        revealElements.forEach(el => observer.observe(el));
+
     </script>
 
 </body>
