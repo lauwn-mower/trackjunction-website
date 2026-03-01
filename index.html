@@ -405,6 +405,76 @@
                 background: rgba(217, 4, 41, 0.1); /* Faint red tint */
                 border-color: #d90429;
             }
+
+        /* --- Reviews Section --- */
+        .reviews-section {
+            padding: 80px 10%;
+            text-align: center;
+            background-color: #000000;
+        }
+
+            .reviews-section h2 {
+                font-size: 3rem;
+                margin-bottom: 50px;
+                color: #ffffff;
+            }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 50px auto; /* Adds space below the grid for the button */
+        }
+
+        .review-card {
+            background: #080808; /* Slightly lighter than the pure black background */
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 30px;
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+            .review-card:hover {
+                transform: translateY(-5px);
+                border-color: #FCAE16; /* Glows orange on hover */
+            }
+
+        .stars {
+            color: #FCAE16;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: #b0b0b0;
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .reviewer {
+            color: #ffffff;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        /* Delays the scroll animation so they cascade in nicely */
+        .reviews-grid .review-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .reviews-grid .review-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .reviews-grid .review-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
         /* --- Hero Layout & Panning Background --- */
         .hero-section {
             position: relative;
@@ -562,6 +632,34 @@
                 </div>
 
             </div>
+
+            <section id="reviews" class="reviews-section">
+                <h2 class="reveal-up">Word on the Street</h2>
+
+                <div class="reviews-grid">
+                    <div class="review-card reveal-up">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Absolute lifesaver. Dropped off my fixed gear and Liz had it running smoother than the day I bought it. Highly recommend for any track bike maintenance."</p>
+                        <p class="reviewer">- Jason T.</p>
+                    </div>
+
+                    <div class="review-card reveal-up">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Super professional and affordable. You can tell they actually ride and know exactly what a track bike needs. Will definitely be coming back for my next tune-up."</p>
+                        <p class="reviewer">- Sarah M.</p>
+                    </div>
+
+                    <div class="review-card reveal-up">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Fast turnaround time and great communication throughout the whole process. Sourced the exact parts I needed without upcharging me crazy amounts."</p>
+                        <p class="reviewer">- Mark R.</p>
+                    </div>
+                </div>
+
+                <div class="reviews-btn-container reveal-up">
+                    <a href="https://maps.app.goo.gl/YxfcaNaDKqA4oLXt9" target="_blank" class="btn">Read All Google Reviews</a>
+                </div>
+            </section>
         </section>
 
         <footer class="main-footer">
