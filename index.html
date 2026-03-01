@@ -136,31 +136,82 @@
                 color: #0F1A20; /* Dark text on hover */
             }
 
-        /* --- Footer Icons --- */
-        .footer {
-            padding: 30px 0 40px 0;
+        /* --- Footer & Social Icons --- */
+        .main-footer {
+            background-color: #050505;
+            padding: 40px 20px 30px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 60px;
+        }
+
+        .social-links {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 25px; /* Space between icons */
+            gap: 25px;
+            margin-bottom: 20px;
         }
 
-            .footer a {
+            .social-links a {
                 display: inline-block;
                 width: 28px;
                 height: 28px;
                 transition: transform 0.2s ease;
             }
 
-                .footer a:hover {
-                    transform: translateY(-3px); /* Slight jump effect on hover */
+                .social-links a:hover {
+                    transform: translateY(-3px);
                 }
 
-            .footer img {
+            .social-links img {
                 width: 100%;
                 height: auto;
-                /* Converts the black PNG icons to white */
-                filter: invert(1);
+                filter: invert(1); /* Keeps your black PNGs white */
+                opacity: 0.6;
+                transition: opacity 0.3s ease;
+            }
+
+            .social-links a:hover img {
+                opacity: 1; /* Brightens up when hovered */
+            }
+
+        .main-footer p {
+            color: #555555;
+            font-size: 0.9rem;
+            margin: 0;
+            letter-spacing: 1px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        /* --- Floating WhatsApp Button --- */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .floating-wa:hover {
+                transform: translateY(-5px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            }
+
+            .floating-wa img {
+                width: 35px;
+                height: 35px;
+                object-fit: contain;
+                /* Inverts your black PNG to white so it looks good on the green background */
+                filter: invert(1) brightness(2);
             }
 
         /* --- Mobile Responsiveness --- */
@@ -513,12 +564,19 @@
             </div>
         </section>
 
-        <div class="footer">
-            <a href="https://wa.me/6589227208" target="_blank"><img src="whatsapp.png" alt="WhatsApp"></a>
-            <a href="https://www.instagram.com/trackjunction.co" target="_blank"><img src="instagram.png" alt="Instagram"></a>
-            <a href="mailto:startrackcycles@gmail.com"><img src="mail.png" alt="Email"></a>
-            <a href="https://maps.app.goo.gl/efkZYxPZVaXP9V897" target="_blank"><img src="pin.png" alt="Location"></a>
-        </div>
+        <footer class="main-footer">
+            <div class="social-links">
+                <a href="https://wa.me/6589227208" target="_blank"><img src="whatsapp.png" alt="WhatsApp"></a>
+                <a href="https://www.instagram.com/trackjunction.co" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+                <a href="mailto:startrackcycles@gmail.com"><img src="mail.png" alt="Email"></a>
+                <a href="https://maps.app.goo.gl/efkZYxPZVaXP9V897" target="_blank"><img src="pin.png" alt="Location"></a>
+            </div>
+            <p>&copy; 2026 TrackJunction. For Cyclists, From a Cyclist.</p>
+        </footer>
+
+        <a href="https://wa.me/6589227208" target="_blank" class="floating-wa reveal-up">
+            <img src="whatsapp.png" alt="Chat on WhatsApp">
+        </a>
 
     </div>
 
